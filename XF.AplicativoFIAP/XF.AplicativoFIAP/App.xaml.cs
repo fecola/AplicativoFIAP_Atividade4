@@ -12,8 +12,14 @@ namespace XF.AplicativoFIAP
         public App()
         {
             InitializeComponent();
+            InitializeApplication();
 
-            MainPage = new XF.AplicativoFIAP.MainPage();
+            MainPage = new NavigationPage(new View.ListaProfessorView { BindingContext = App.ProfessorVM });
+        }
+
+        private void InitializeApplication()
+        {
+            if (ProfessorVM == null) ProfessorVM = new ProfessorViewModel();
         }
 
         protected override void OnStart()
